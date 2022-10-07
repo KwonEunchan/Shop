@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -6,7 +6,8 @@
   user-select: none;
 }
 
-.header{
+//헤더
+.header {
   width: 100vw;
   height: 20vh;
 
@@ -38,11 +39,11 @@
     }
   }
 
-  .menuBar{
+  .menuBar {
     height: 10vh;
     background-color: #EFEFEF;
 
-    .inner{
+    .inner {
       width: 80%;
       height: 100%;
       margin: 0 auto;
@@ -50,7 +51,8 @@
       justify-content: space-between;
       align-items: center;
     }
-    .menuList{
+
+    .menuList {
       width: 20vw;
       height: 100%;
       display: flex;
@@ -58,7 +60,8 @@
       align-items: center;
       list-style: none;
     }
-    .searchBox{
+
+    .searchBox {
       width: 25vw;
       height: 60%;
       border: 1px solid black;
@@ -67,13 +70,14 @@
       align-items: center;
       background-color: white;
 
-      input{
+      input {
         border: none;
         outline: none;
         width: 75%;
         height: 100%;
       }
-      button{
+
+      button {
         width: 15%;
         height: 80%;
         background-color: #000000;
@@ -82,10 +86,138 @@
         cursor: pointer;
         transition: .3s;
 
-        &.active{
+        &.active {
           background-color: #1187CF;
         }
       }
     }
+  }
+}
+
+//소개 페이지
+.introPage {
+  width: 100vw;
+  height: 60vh;
+
+  .inner {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+
+    .noticeBox {
+      position: absolute;
+      width: 30vw;
+      height: 40vh;
+      top: 5vh;
+      left: 0;
+      background-color: white;
+
+      p {
+        font-weight: 700;
+        font-size: 2vw;
+        text-align: left;
+        border-bottom: 2px solid rgba(black, .2);
+
+        span {
+          border-bottom: 2px solid #1187CF;
+        }
+      }
+
+      .noticeList {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        .noticeEl {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: 90%;
+          height: 30%;
+          text-align: left;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            background-color: #1187CF;
+            width: .5%;
+            height: 10%;
+            margin-left: -1vw;
+          }
+
+          h1 {
+            font-size: 1.5vw;
+          }
+
+          h2 {
+            font-size: 1vw;
+            font-weight: 300;
+          }
+        }
+      }
+    }
+
+    .recommendShop {
+      position: absolute;
+      width: 45vw;
+      height: 45vh;
+      top: 5vh;
+      right: 0;
+      background-color: #EFEFEF;
+      border-radius: .5vw;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .recommendList {
+        width: 30%;
+        height: 90%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        list-style: none;
+
+        li {
+          width: 100%;
+          height: 25%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+
+          &:hover {
+            font-weight: 700;
+            background-color: rgba(black, .05);
+          }
+        }
+      }
+
+      .banner {
+        width: 60%;
+        height: 90%;
+        background: {
+          image: url('../images/banner.png');
+          position: center;
+          size: cover;
+        }
+      }
+    }
+  }
+  .noticeBar{
+    background-color: #EFEFEF;
+    width: 100%;
+    height: 10vh;
+    position: absolute;
+    bottom: 0;
   }
 }
