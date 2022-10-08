@@ -40,10 +40,16 @@
         list-style: none;
         font-size: 1vw;
 
-        li{
+        li {
           cursor: pointer;
+          color: white;
+          text-decoration: none;
 
-          &:hover{
+          &:link {
+            text-decoration: none;
+          }
+
+          &:hover {
             font-weight: 700;
           }
         }
@@ -294,26 +300,27 @@
         background-color: white;
         position: relative;
 
-        &:hover{
-          .productName{
+        &:hover {
+          .productName {
             height: 100%;
 
-            h1{
+            h1 {
               position: absolute;
               top: 10%;
             }
 
-            .productInfo{
+            .productInfo {
               position: absolute;
               width: 100%;
               height: 70%;
               animation: infoShow 1s .3s linear forwards;
               bottom: 0;
 
-              p{
+              p {
                 font-size: 1vw;
               }
-              .productBtnBox{
+
+              .productBtnBox {
                 display: flex;
                 width: 80%;
                 height: 80%;
@@ -321,21 +328,22 @@
                 justify-content: space-around;
                 align-items: center;
 
-                button{
+                button {
                   width: 40%;
                   height: 30%;
                   border: none;
                   transition: .5s;
                   cursor: pointer;
 
-                  &:hover{
+                  &:hover {
                     scale: 1.02;
                   }
-                  &:active{
+
+                  &:active {
                     scale: 0.98;
                   }
 
-                  &.btnBuy{
+                  &.btnBuy {
                     background-color: #1187CF;
                     color: white;
                   }
@@ -364,10 +372,11 @@
           transition: 1s;
           background-color: white;
 
-          h1{
+          h1 {
             font-size: 1.5vw;
           }
-          .productInfo{
+
+          .productInfo {
             display: block;
             height: 0;
             opacity: 0;
@@ -384,6 +393,213 @@
         &.active {
           font-weight: 700;
         }
+      }
+    }
+  }
+}
+
+//로그인창
+.loginPage {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(black, .7);
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  active {
+    color: red;
+  }
+
+  .loginForm {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 40%;
+    height: 90%;
+    background-color: white;
+    animation: formShow .5s linear forwards;
+
+    .inner {
+      width: 80%;
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+
+
+      .loginInputBox {
+        width: 80%;
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .inputEl {
+          position: relative;
+          height: 35%;
+
+
+          .inputMsg {
+            display: flex;
+            height: 70%;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            user-select: auto;
+            color: gray;
+            transition: .2s;
+
+            &.active {
+              color: #1187CF;
+              bottom: 50%;
+              font-size: 1vw;
+            }
+          }
+
+          input {
+            background-color: transparent;
+            position: absolute;
+            width: 100%;
+            height: 60%;
+            bottom: 0;
+            left: 0;
+            border: none;
+            border-bottom: 1px solid black;
+            outline: none;
+          }
+        }
+      }
+
+      .btnBox {
+        width: 100%;
+        height: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        .btn {
+          width: 80%;
+          height: 40%;
+          border: none;
+          transition: .5s;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #EFEFEF;
+
+          &:hover {
+            opacity: .9;
+          }
+
+          &.btnJoin {
+            background-color: #545454;
+            color: white;
+          }
+
+          &.active {
+            background-color: #1187CF;
+            color: white;
+          }
+        }
+      }
+
+      .btnClose {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        cursor: pointer;
+
+        &:hover {
+          font-weight: 800;
+        }
+      }
+    }
+  }
+}
+
+//회원가입창
+.joinPage {
+  width: 100vw;
+  height: 80vh;
+
+  .inner {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    h2{
+      font-weight: 400;
+      font-size: 1.5vw;
+    }
+
+    .joinInputBox {
+      width: 30%;
+      height: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .inputEl {
+        position: relative;
+        height: 35%;
+
+
+        .inputMsg {
+          display: flex;
+          height: 70%;
+          align-items: center;
+          position: absolute;
+          bottom: 0;
+          user-select: auto;
+          color: gray;
+          transition: .2s;
+
+          &.active {
+            color: #1187CF;
+            bottom: 50%;
+            font-size: 1vw;
+          }
+        }
+
+        input {
+          background-color: transparent;
+          position: absolute;
+          width: 100%;
+          height: 60%;
+          bottom: 0;
+          left: 0;
+          border: none;
+          border-bottom: 1px solid black;
+          outline: none;
+        }
+      }
+    }
+    .btnJoin{
+      width: 30%;
+      height: 10%;
+      border: none;
+      transition: .5s;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #EFEFEF;
+
+      &.active{
+        background-color: black;
+        color: white;
       }
     }
   }
