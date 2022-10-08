@@ -1,3 +1,5 @@
+@import './ani.scss';
+
 * {
   margin: 0;
   padding: 0;
@@ -6,10 +8,12 @@
   user-select: none;
 }
 
+
 //헤더
 .header {
   width: 100vw;
   height: 20vh;
+
 
   .userBar {
     height: 10vh;
@@ -35,6 +39,14 @@
         justify-content: space-between;
         list-style: none;
         font-size: 1vw;
+
+        li{
+          cursor: pointer;
+
+          &:hover{
+            font-weight: 700;
+          }
+        }
       }
     }
   }
@@ -97,7 +109,7 @@
 //소개 페이지
 .introPage {
   width: 100vw;
-  height: 60vh;
+  height: 80vh;
 
   .inner {
     width: 80%;
@@ -109,7 +121,7 @@
       position: absolute;
       width: 30vw;
       height: 40vh;
-      top: 5vh;
+      top: 10vh;
       left: 0;
       background-color: white;
 
@@ -170,7 +182,7 @@
       position: absolute;
       width: 45vw;
       height: 45vh;
-      top: 5vh;
+      top: 10vh;
       right: 0;
       background-color: #EFEFEF;
       border-radius: .5vw;
@@ -213,11 +225,166 @@
       }
     }
   }
-  .noticeBar{
+
+  .noticeBar {
     background-color: #EFEFEF;
     width: 100%;
     height: 10vh;
     position: absolute;
     bottom: 0;
+  }
+}
+
+//쇼핑 탭
+.shop {
+  width: 100vw;
+  height: 100vh;
+  background-color: #EFEFEF;
+
+  .inner {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    p {
+      font-weight: 500;
+      font-size: 3vw;
+    }
+
+    ul {
+      width: 50vw;
+      height: 70%;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      list-style: none;
+      margin: 0 auto;
+
+      li {
+        color: black;
+        font-weight: 300;
+        cursor: pointer;
+      }
+
+      li.active {
+        border-bottom: 1px solid black;
+        font-weight: 700;
+      }
+    }
+
+    .shopBody {
+      width: 100%;
+      height: 60%;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-items: center;
+      justify-content: space-around;
+      align-items: center;
+
+      .productEl {
+        width: 95%;
+        height: 95%;
+        background-color: white;
+        position: relative;
+
+        &:hover{
+          .productName{
+            height: 100%;
+
+            h1{
+              position: absolute;
+              top: 10%;
+            }
+
+            .productInfo{
+              position: absolute;
+              width: 100%;
+              height: 70%;
+              animation: infoShow 1s .3s linear forwards;
+              bottom: 0;
+
+              p{
+                font-size: 1vw;
+              }
+              .productBtnBox{
+                display: flex;
+                width: 80%;
+                height: 80%;
+                margin: 0 auto;
+                justify-content: space-around;
+                align-items: center;
+
+                button{
+                  width: 40%;
+                  height: 30%;
+                  border: none;
+                  transition: .5s;
+                  cursor: pointer;
+
+                  &:hover{
+                    scale: 1.02;
+                  }
+                  &:active{
+                    scale: 0.98;
+                  }
+
+                  &.btnBuy{
+                    background-color: #1187CF;
+                    color: white;
+                  }
+
+                }
+              }
+            }
+          }
+        }
+
+        .productImage {
+          width: 100%;
+          height: 80%;
+          background-color: black;
+        }
+
+        .productName {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 20%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          transition: 1s;
+          background-color: white;
+
+          h1{
+            font-size: 1.5vw;
+          }
+          .productInfo{
+            display: block;
+            height: 0;
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+    .shopFooter {
+      width: 20%;
+      height: 10%;;
+
+      li {
+        &.active {
+          font-weight: 700;
+        }
+      }
+    }
   }
 }
