@@ -1,7 +1,10 @@
 import {useEffect, useState} from "react";
+import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 export default function Join(props) {
     const [joinActive, setJoinActive] = useState(false)
+    const nav = useNavigate()
 
     useEffect(() => {
         joinActive ? document.querySelector('.btnJoin').classList.add('active') :
@@ -42,7 +45,16 @@ export default function Join(props) {
                                }}/>
                     </div>
                 </div>
-                <button className="btnJoin">회원가입</button>
+                <button className="btnJoin" onClick={()=>{
+                    const req = {
+                        "id" : document.querySelector('.joinInputBox #inputId').value,
+                        "pw" : document.querySelector('.joinInputBox #inputPw').value,
+                    }
+
+                    axios.post("/reqjoin",req).then((res)=>{
+                        !res.data ? alert("중복된 아이디입니다!") : nav("/")
+                    })
+                }}>회원가입</button>
             </div>
         </div>
     )

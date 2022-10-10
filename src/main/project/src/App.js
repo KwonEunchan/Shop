@@ -9,10 +9,13 @@ import {useCookies} from "react-cookie";
 import {useEffect, useState} from "react";
 import {Route, Routes} from "react-router-dom";
 import Join from "./components/Join";
+import Cart from "./components/Cart";
+import axios from "axios";
 
 function App() {
     const [loginView, setLoginView] = useState(false)
     const [joinView, setJoinView] = useState(false)
+    const [cookies] = useCookies()
 
     return (<div className="App">
         <Header setLoginView={setLoginView}></Header>
@@ -21,7 +24,6 @@ function App() {
                 <>
                     <Intro></Intro>
                     <Shopping></Shopping>
-                    }
                 </>
             }/>
             <Route path="/join" element={
@@ -29,6 +31,7 @@ function App() {
             }/>
         </Routes>
         {loginView && <Login setLoginView={setLoginView}></Login>}
+        {cookies.id && <Cart></Cart>}
     </div>);
 }
 

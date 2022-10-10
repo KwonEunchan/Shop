@@ -1,8 +1,11 @@
 import {useEffect, useState} from "react";
 import Join from "./Join";
+import axios from "axios";
+import {useCookies} from "react-cookie";
 
 export default function Login(props) {
     const [loginActive, setLoginActive] = useState(false)
+    const [cookies,setCookie] = useCookies()
 
     useEffect(() => {
         loginActive ? document.querySelector('.btnLogin').classList.add('active') : document.querySelector('.btnLogin').classList.remove('active')
@@ -36,11 +39,26 @@ export default function Login(props) {
                                onBlur={(e) => {
                                    const labelPw = document.querySelectorAll('.loginInputBox .inputMsg')[1]
                                    e.target.value === "" && labelPw.classList.remove('active')
+
                                }}/>
                     </div>
                 </div>
                 <div className="btnBox">
-                    <div className="btnLogin btn">로그인</div>
+                    <div className="btnLogin btn" onClick={(e)=>{
+                        const req = {
+                            "id" : document.querySelector('.loginInputBox #inputId').value,
+                            "pw" : document.querySelector('.loginInputBox #inputPw').value
+                        }
+                        axios.post("/login", req).then((res)=>{
+                            if(res.data != ""){
+                                setCookie('id',res.data)
+                                props.setLoginView(false)
+                            }
+                            else{
+                                alert("로그인 정보를 확인해주세요!")
+                            }
+                        })
+                    }}>로그인</div>
                     <div className="btnJoin btn">회원가입</div>
                 </div>
                 <div className="material-symbols-outlined btnClose" onClick={() => {
